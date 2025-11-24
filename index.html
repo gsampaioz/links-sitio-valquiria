@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sítio Valquíria • Refúgio no Campo</title>
 
+  <!-- Fonte Platypi -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -22,16 +23,343 @@
       --sv-cream: #fff8ee;
     }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: system-ui, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
       background: radial-gradient(circle at top, #fbead4 0, #cfb291 45%, #8c5e37 100%);
-      padding: 40px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: var(--sv-brown-dark);
+    }
+
+    .page {
+      width: 100%;
+      max-width: 420px;
+      padding: 16px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255, 248, 238, 0.96), rgba(242, 220, 190, 0.98));
+      border-radius: 24px;
+      padding: 24px 20px 18px;
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo-area {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .logo-img {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 10px;
+      border: 3px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+      background: #000;
+    }
+
+    .logo-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .logo-title {
+      font-family: "Platypi", serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sv-brown-dark);
+    }
+
+    .logo-subtitle {
+      font-family: "Platypi", serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--sv-orange);
+      margin-top: 4px;
+    }
+
+    .intro {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #6a4a2e;
+      margin: 10px 8px 18px;
+      line-height: 1.5;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .link-card {
+      display: grid;
+      grid-template-columns: 1.1fr 1.1fr;
+      align-items: center;
+      background: linear-gradient(
+        135deg,
+        rgba(107, 66, 38, 0.96),
+        rgba(59, 36, 20, 0.97)
+      );
+      border-radius: 18px;
+      padding: 10px 10px 10px 14px;
+      text-decoration: none;
+      color: #fef7eb;
+      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .link-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at top right,
+        rgba(226, 155, 26, 0.55),
+        transparent 55%
+      );
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .link-text h3 {
+      font-family: "Platypi", serif;
+      font-size: 1.05rem;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .link-text p {
+      font-size: 0.78rem;
+      opacity: 0.9;
+    }
+
+    .link-cta {
+      margin-top: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+    }
+
+    .link-cta span.icon-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: var(--sv-gold);
+      color: #3b2414;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .link-cta span.label {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(245, 227, 200, 0.18);
+      border: 1px solid rgba(245, 227, 200, 0.35);
+    }
+
+    .link-image {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 2px solid rgba(245, 227, 200, 0.6);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
+    }
+
+    .link-image img {
+      width: 100%;
+      height: 100%;
+      max-height: 96px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .link-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 26px rgba(0, 0, 0, 0.45);
+      transition: all 0.18s ease-out;
+    }
+
+    .link-card:active {
+      transform: translateY(1px) scale(0.99);
+    }
+
+    .footer {
+      border-top: 1px solid rgba(139, 95, 56, 0.35);
+      padding-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+      font-size: 0.78rem;
+      color: #6a4a2e;
+    }
+
+    .social {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social a {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border: 1px solid rgba(107, 66, 38, 0.55);
+      background: rgba(245, 227, 200, 0.7);
+      font-size: 0.86rem;
+      color: var(--sv-brown-dark);
+    }
+
+    .social a:hover {
+      background: var(--sv-gold);
+      color: #2d1b0f;
+    }
+
+    .footer small {
+      opacity: 0.8;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 20px 16px 16px;
+      }
+      .logo-title {
+        font-size: 1.4rem;
+      }
+      .links {
+        gap: 12px;
+      }
+      .link-card {
+        grid-template-columns: 1.1fr 1fr;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Sítio Valquíria</h1>
-  <p>Seu mini-site foi gerado! Agora você pode substituir este conteúdo pelo layout completo.</p>
+  <main class="page">
+    <section class="card">
+      <!-- TOPO / LOGO -->
+      <header class="logo-area">
+        <div class="logo-img">
+          <!-- Troque o src pela URL do seu logo em boa resolução -->
+          <img src="logo-sitio-valquiria.png" alt="Logo Sítio Valquíria">
+        </div>
+        <h1 class="logo-title">Sítio Valquíria</h1>
+        <p class="logo-subtitle">Refúgio no Campo</p>
+      </header>
+
+      <!-- TEXTO CURTO -->
+      <p class="intro">
+        Um refúgio rural em meio à natureza para descansar, celebrar e viver bons momentos
+        em família e com amigos.
+      </p>
+
+      <!-- BLOCO DE LINKS PRINCIPAIS -->
+      <div class="links">
+        <!-- LINK 1 -->
+        <a
+          class="link-card"
+          href="https://sitiovalquiria.com.br"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="link-text">
+            <h3>Conheça o Sítio</h3>
+            <p>Veja fotos, estrutura completa e detalhes da casa e do chalé.</p>
+            <div class="link-cta">
+              <span class="icon-pill">🔍</span>
+              <span class="label">Ver detalhes</span>
+            </div>
+          </div>
+          <div class="link-image">
+            <!-- Troque a imagem pela foto que quiser -->
+            <img src="foto-sitio-1.jpg" alt="Vista do pôr do sol no sítio">
+          </div>
+        </a>
+
+        <!-- LINK 2 -->
+        <a
+          class="link-card"
+          href="https://wa.me/5574999999999?text=Ol%C3%A1,%20gostaria%20de%20agendar%20uma%20data%20no%20S%C3%ADtio%20Valqu%C3%ADria."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="link-text">
+            <h3>Agende uma data</h3>
+            <p>Fale direto pelo WhatsApp para consultar datas e valores.</p>
+            <div class="link-cta">
+              <span class="icon-pill">📅</span>
+              <span class="label">Chamar no WhatsApp</span>
+            </div>
+          </div>
+          <div class="link-image">
+            <img src="foto-evento.jpg" alt="Evento no Sítio Valquíria">
+          </div>
+        </a>
+
+        <!-- LINK 3 -->
+        <a
+          class="link-card"
+          href="https://www.google.com/maps"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="link-text">
+            <h3>Nossa localização</h3>
+            <p>Veja como chegar ao Sítio Valquíria com rotas pelo Google Maps.</p>
+            <div class="link-cta">
+              <span class="icon-pill">📍</span>
+              <span class="label">Abrir no Maps</span>
+            </div>
+          </div>
+          <div class="link-image">
+            <img src="foto-aerea.jpg" alt="Foto aérea do sítio">
+          </div>
+        </a>
+      </div>
+
+      <!-- RODAPÉ / REDES SOCIAIS -->
+      <footer class="footer">
+        <div class="social">
+          <a href="https://instagram.com/seuinstagram" target="_blank" aria-label="Instagram">IG</a>
+          <a href="https://facebook.com/seufacebook" target="_blank" aria-label="Facebook">FB</a>
+          <a href="https://youtube.com/seuyoutube" target="_blank" aria-label="YouTube">YT</a>
+        </div>
+        <small>© <span id="ano"></span> Sítio Valquíria • Miguel Calmon - BA</small>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    // Atualiza o ano automaticamente
+    document.getElementById("ano").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
